@@ -1,7 +1,7 @@
-node 'puppet' {
+node 'master' {
   include ::ntp
 }
 
-node 'allinone.localdomain' {
+node 'slave' {
   include ::havana::role::allinone
 }
