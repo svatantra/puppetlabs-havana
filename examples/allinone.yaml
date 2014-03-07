@@ -1,16 +1,17 @@
 havana::region: 'openstack'
 
+#Using same network for api and Management
 ######## Networks
-havana::network::api: '192.168.11.0/24'
+havana::network::api: '172.16.33.0/24'
 havana::network::external: '192.168.22.0/24'
 havana::network::management: '172.16.33.0/24'
-havana::network::data: '172.16.44.0/24'
+#havana::network::data: '172.16.44.0/24'
 
 ######## Fixed IPs (controllers)
 
-havana::controller::address::api: '192.168.11.4'
+havana::controller::address::api: '172.16.33.4'
 havana::controller::address::management: '172.16.33.4'
-havana::storage::address::api: '192.168.11.4'
+havana::storage::address::api: '172.16.33.4'
 havana::storage::address::management: '172.16.33.4'
 
 ######## Database
