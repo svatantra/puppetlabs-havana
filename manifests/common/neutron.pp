@@ -31,13 +31,14 @@ class havana::common::neutron {
   #  tenant_network_type => 'gre',
   #}
   
-  # Need to externalize the mappings
-  class { '::neutron::agents::ovs':
+  
+  # Need to externalize the mappings (TODO-SV), Every node can have different mappings
+  class { '::neutron::agents::linuxbridge':
     physical_interface_mappings => 'physnet1:eth2'
   }
   
   #everyone gets an Linux Bridge Plugin 
-  #Need to externalize the vlan ranges
+  #Need to externalize the vlan ranges (TODO-SV)
   class  { '::neutron::plugins::linuxbridge':
     sql_connection      => $::havana::resources::connectors::neutron,
     tenant_network_type => 'vlan',
