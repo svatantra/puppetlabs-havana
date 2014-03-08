@@ -1,6 +1,6 @@
 Setup for a two node OpenStack deployment
 
-==Setup Details==
+##Setup Details
 
 Common configurations can be found in common.yaml, Controller specific configuration details are in controller.dev.com.yaml, and Compute specific configurations are in compute.dev.com.yaml.
 
