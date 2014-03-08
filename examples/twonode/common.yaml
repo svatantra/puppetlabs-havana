@@ -2,7 +2,8 @@ havana::region: 'openstack'
 
 ######## Networks
 havana::network::api: '10.37.18.0/24'
-havana::network::external: '192.168.45.0/24'
+#TODO-SV, No configuration of external Network
+#havana::network::external: '192.168.45.0/24'
 havana::network::management: '10.37.18.0/24'
 havana::network::network_vlan_ranges: 'physnet1:1000:2999'
 havana::network::physical_interface_mappings: 'physnet1:eth1'
@@ -60,7 +61,7 @@ havana::swift::hash_suffix: 'pop-bang'
 ######## Nova
 
 havana::nova::libvirt_type: 'kvm'
-havana::nova::password: 'quuk-paj'
+havana::nova::password: 'password'
 
 ######## Neutron
 
