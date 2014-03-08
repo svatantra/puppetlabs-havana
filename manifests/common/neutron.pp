@@ -32,17 +32,16 @@ class havana::common::neutron {
   #}
   
   
-  # Need to externalize the mappings (TODO-SV), Every node can have different mappings
+  # Every node can have different mappings
   class { '::neutron::agents::linuxbridge':
-    physical_interface_mappings => 'physnet1:eth2'
+    physical_interface_mappings => hiera('havana::network::physical_interface_mappings'),
   }
   
   #everyone gets an Linux Bridge Plugin 
-  #Need to externalize the vlan ranges (TODO-SV)
   class  { '::neutron::plugins::linuxbridge':
     sql_connection      => $::havana::resources::connectors::neutron,
     tenant_network_type => 'vlan',
-    network_vlan_ranges => 'physnet1:1000:2000',
+    network_vlan_ranges => hiera('havana::network::network_vlan_ranges'),
   }
   
   
