@@ -1,1 +1,84 @@
-f
+havana::region: 'openstack'
+
+######## Networks
+havana::network::api: '192.168.11.0/24'
+havana::network::external: '192.168.22.0/24'
+havana::network::management: '172.16.33.0/24'
+havana::network::data: '172.16.44.0/24'
+
+######## Fixed IPs (controllers)
+
+havana::controller::address::api: '192.168.11.4'
+havana::controller::address::management: '172.16.33.4'
+havana::storage::address::api: '192.168.11.5'
+havana::storage::address::management: '172.16.33.5'
+
+######## Database
+
+havana::mysql::root_password: 'password'
+havana::mysql::service_password: 'password'
+havana::mysql::allowed_hosts: ['localhost', '127.0.0.1', '172.16.33.%']
+
+######## RabbitMQ
+
+havana::rabbitmq::user: 'openstack'
+havana::rabbitmq::password: 'password'
+
+######## Keystone
+
+havana::keystone::admin_token: 'admin'
+havana::keystone::admin_email: 'svatantra.liberte@gmail.com'
+havana::keystone::admin_password: 'password'
+
+havana::tenants:
+    "test":
+        description: "Demo tenant"
+
+havana::users:
+    "test":
+        password: "password"
+        tenant: "demo"
+        email: "test@example.com"
+        admin: true
+
+######## Glance
+
+havana::glance::password: 'password'
+
+######## Cinder
+
+havana::cinder::password: 'password'
+havana::cinder::volume_size: '4G'
+
+######## Swift
+
+havana::swift::password: 'password'
+havana::swift::hash_suffix: 'pop-bang'
+
+######## Nova
+
+havana::nova::libvirt_type: 'kvm'
+havana::nova::password: 'quuk-paj'
+
+######## Neutron
+
+havana::neutron::password: 'password'
+havana::neutron::shared_secret: 'by-sa-bo'
+
+######## Ceilometer
+havana::ceilometer::mongo::password: 'password'
+havana::ceilometer::password: 'password'
+havana::ceilometer::meteringsecret: 'ceilometersecretkey'
+
+######## Heat
+havana::heat::password: 'password'
+havana::heat::encryption_key: 'heatsecretkey'
+
+
+######## Horizon
+
+havana::horizon::secret_key: 'horizonsecretkey'
+
+######## Log levels
+havana::verbose: 'True'
+havana::debug: 'True'
