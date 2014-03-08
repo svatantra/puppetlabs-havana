@@ -1,1 +1,2 @@
-p
+havana::network::network_vlan_ranges: 'physnet1:1000:2999'
+havana::network::physical_interface_mappings: 'physnet1:eth1'
