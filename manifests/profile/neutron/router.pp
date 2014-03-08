@@ -44,16 +44,17 @@ class havana::profile::neutron::router {
     }
   }
 
-  vs_bridge { 'br-ex':
-    ensure => present,
-  }
+# TODO-SV, To check if bridge is required for Linux Bridge
+#  vs_bridge { 'br-ex':
+#    ensure => present,
+#  }
 
-  $external_network = hiera('havana::network::external')
-  $external_device = device_for_network($external_network)
+#  $external_network = hiera('havana::network::external')
+#  $external_device = device_for_network($external_network)
 
-  vs_port { $external_device:
-    ensure  => present,
-    bridge  => 'br-ex',
-    keep_ip => true,
-  }
+#  vs_port { $external_device:
+#    ensure  => present,
+#    bridge  => 'br-ex',
+#    keep_ip => true,
+#  }
 }
