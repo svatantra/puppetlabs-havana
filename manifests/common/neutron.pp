@@ -15,7 +15,7 @@ class havana::common::neutron {
     rabbit_password    => hiera('havana::rabbitmq::password'),
     debug              => hiera('havana::debug'),
     verbose            => hiera('havana::verbose'),
-    core_plugin        => 'linux_bridge',
+    core_plugin        => 'neutron.plugins.linuxbridge.lb_neutron_plugin.LinuxBridgePluginV2',
   }
 
   # everone gets an ovs agent (TODO true?)
