@@ -53,7 +53,9 @@ class havana::common::nova ($is_compute    = false) {
     vncproxy_host                 => hiera('havana::controller::address::api'),
   }
 
-  class { '::nova::compute::neutron': }
+  class { '::nova::compute::neutron':
+     libvirt_vif_driver          => 'nova.virt.libvirt.vif.LibvirtGenericVIFDriver',
+  }
 
   class { '::nova::network::neutron':
     neutron_admin_password => hiera('havana::neutron::password'),
