@@ -18,10 +18,7 @@ class havana::profile::neutron::server {
     enabled       => true,
   }
   
-  //TODO-SV, check for OpenVswitch
-  class { '::neutron':
-    core_plugin   => 'linuxbridge',
-  }
+
 
   include ::havana::common::neutron
 }
