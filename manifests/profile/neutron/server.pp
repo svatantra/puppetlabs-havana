@@ -17,6 +17,11 @@ class havana::profile::neutron::server {
     auth_password => hiera('havana::neutron::password'),
     enabled       => true,
   }
+  
+  //TODO-SV, check for OpenVswitch
+  class { '::neutron':
+    core_plugin   => 'linuxbridge',
+  }
 
   include ::havana::common::neutron
 }
